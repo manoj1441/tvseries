@@ -58,13 +58,23 @@
 }
 
 @media (max-width: 800px) {
-  .page {
+  .page{
+    width: 300px;
+  }
+  .boxes {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 500px) {
-  .page {
+  .search{
+    margin-left: 50px;
+    width: 300px;
+  }
+  .page{
+    width: 10%;
+  }
+  .boxes {
     grid-template-columns: 1fr;
   }
  
