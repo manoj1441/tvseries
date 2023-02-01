@@ -52,7 +52,7 @@ return(
             <input type="search" className="search" placeholder="Srearch movie" value={search} onChange={change} />{
                 movie.length===0
                 ?
-                <div>Loading</div>
+                <div>Loading...</div>
                 :<MovieComponent movie={movie} />
             }
             
