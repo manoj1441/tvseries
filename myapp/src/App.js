@@ -9,13 +9,14 @@ const App=()=>{
 
 const[movie,setMovie]=useState([])
 const[search,setSearch]=useState("")
+
 const change=(e)=>{
     setSearch(e.target.value)
 }
 const getAllMovie=()=>{
     axios.get(api).then(
         (response)=>{
-            setMovie(response.data.results)
+            setMovie(response.data.results.sort((a,b)=>a.original_title.localeCompare(b.original_title)))
         }
     )
     .catch(
@@ -49,11 +50,14 @@ useEffect(
 
 return(
         <div className="page">
-            <input type="search" className="search" placeholder="Srearch movie" value={search} onChange={change} />{
+              <input type="search" className="search" placeholder="Srearch movie" value={search} onChange={change}  />
+              
+           {
                 movie.length===0
                 ?
-                <div>Loading...</div>
-                :<MovieComponent movie={movie} />
+                <div className="not-found">Not Available</div>:
+                
+                <MovieComponent movie={movie} />
             }
             
         </div>
